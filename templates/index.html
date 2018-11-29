@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    </head>
+
+    <body>
+
+        <div class="split left">
+            <div class="centered">
+                <h1>Insert text</h1>
+                <form method="POST" action="/send">
+                    <div class="form-group">
+                        <textarea rows="30" cols="100" name="in_text">{{in_text}}</textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <div class="split right">
+            <div class="centered">
+                <h1>Abbreviations found in the text:</h1>
+                {% for para in out_text %}
+                <p><strong>{{para}}</strong></p>
+                {% endfor %}
+            </div>
+        </div>
+
+    </body>
+</html>
